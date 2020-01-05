@@ -1,26 +1,25 @@
-/**
+/*
  * BetonQuest - advanced quests for Bukkit
  * Copyright (C) 2016  Jakub "Co0sh" Sapalski
- * 
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 package pl.betoncraft.betonquest.compatibility.shopkeepers;
 
-import com.nisovin.shopkeepers.Shopkeeper;
-import com.nisovin.shopkeepers.ShopkeepersPlugin;
-import com.nisovin.shopkeepers.shoptypes.PlayerShopkeeper;
-
+import com.nisovin.shopkeepers.api.ShopkeepersAPI;
+import com.nisovin.shopkeepers.api.shopkeeper.Shopkeeper;
+import com.nisovin.shopkeepers.api.shopkeeper.player.PlayerShopkeeper;
 import pl.betoncraft.betonquest.Instruction;
 import pl.betoncraft.betonquest.InstructionParseException;
 import pl.betoncraft.betonquest.QuestRuntimeException;
@@ -43,11 +42,11 @@ public class HavingShopCondition extends Condition {
 	@Override
 	public boolean check(String playerID) throws QuestRuntimeException {
 		int count = amount.getInt(playerID);
-		for (Shopkeeper s : ShopkeepersPlugin.getInstance().getAllShopkeepers()) {
+		for (Shopkeeper s : ShopkeepersAPI.getShopkeeperRegistry().getAllShopkeepers()) {
 			if (s instanceof PlayerShopkeeper) {
 				PlayerShopkeeper ps = (PlayerShopkeeper) s;
 				if (ps.getOwner() != null && PlayerConverter.getID(ps.getOwner()).equals(playerID)) {
-					count --;
+					count--;
 					if (count == 0) {
 						return true;
 					}

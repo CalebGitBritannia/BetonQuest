@@ -1,3 +1,21 @@
+<!--
+  ~ BetonQuest - advanced quests for Bukkit
+  ~ Copyright (C) 2016  Jakub "Co0sh" Sapalski
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
@@ -120,6 +138,17 @@
 			<id>betonquest-repo</id>
 			<url>http://betonquest.betoncraft.pl/mvn</url>
 		</repository>
+		<!-- Bundabrg's Repo -->
+		<repository>
+			<id>bundabrg-repo</id>
+			<url>https://repo.worldguard.com.au/repository/maven-public</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
 		<repository>
 			<id>bstats-repo</id>
 			<url>http://repo.bstats.org/content/repositories/releases/</url>
@@ -162,14 +191,16 @@
 			<version>6.1</version>
 		</dependency>
 		<dependency>
-			<groupId>com.gmail.nossr50</groupId>
-			<artifactId>mcmmo</artifactId>
-			<version>1.5.04-SNAPSHOT</version>
+			<groupId>com.gmail.nossr50.mcMMO</groupId>
+			<artifactId>mcMMO</artifactId>
+			<version>1.6.0-SNAPSHOT</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>de.slikey.effectlib</groupId>
+			<groupId>de.slikey</groupId>
 			<artifactId>EffectLib</artifactId>
-			<version>3.8</version>
+			<version>6.1</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.black_ixx</groupId>
@@ -203,8 +234,9 @@
 		</dependency>
 		<dependency>
 			<groupId>com.nisovin.shopkeepers</groupId>
-			<artifactId>Shopkeepers</artifactId>
-			<version>1.74</version>
+			<artifactId>ShopkeepersAPI</artifactId>
+			<version>2.7.1</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>me.clip</groupId>
